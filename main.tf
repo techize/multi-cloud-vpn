@@ -16,6 +16,7 @@ module "dns" {
   private_route_table_id = module.aws_vpc.private_route_table_id
 }
 
+/*
 module "google_network" {
   source = "./google/network"
 
@@ -27,6 +28,7 @@ module "google_network" {
   aws_dns_suffix       = var.aws_dns_suffix
   aws_dns_ip_addresses = module.dns.dns_ip_addresses
 }
+*/
 
 module "azure_vnet" {
   source = "./azure/vnet"
@@ -45,16 +47,18 @@ module "vpn" {
   aws_vpc_id          = module.aws_vpc.vpc_id
   aws_route_table_ids = [module.aws_vpc.private_route_table_id, module.aws_vpc.public_route_table_id]
 
+/*
   google_project_id        = var.google_project_id
   google_region            = var.google_region
   google_network_name      = module.google_network.network_name
   google_subnet_self_links = module.google_network.private_subnet_self_links
+*/
 
-  azure_resource_group_name   = var.azure_resource_group_name
   azure_location              = var.azure_location
   azure_network_name          = module.azure_vnet.network_name
   azure_network_address_space = module.azure_vnet.address_space
   azure_gateway_cidr          = "10.2.0.0/27"
-
+  azure_resource_group_name   = var.azure_resource_group_name
+  
   dns_network_acl_id = module.dns.dns_network_acl_id
 }

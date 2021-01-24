@@ -12,16 +12,16 @@ variable "aws_directory_service_password" {
   type        = string
   description = "password to use for the aws directory service (enabling DNS)"
 }
-
-variable "google_region" {
-  type        = string
-  description = "google cloud region to use"
-}
-
-variable "google_project_id" {
-  type        = string
-  description = "google cloud project to use"
-}
+#
+#variable "google_region" {
+#  type        = string
+#  description = "google cloud region to use"
+#}
+#
+#variable "google_project_id" {
+#  type        = string
+#  description = "google cloud project to use"
+#}
 
 variable "azure_resource_group_name" {
   type        = string

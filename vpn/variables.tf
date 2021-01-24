@@ -8,7 +8,7 @@ variable "aws_route_table_ids" {
   description = "aws route tables to add vpn routes to"
 }
 
-variable "google_project_id" {
+/*variable "google_project_id" {
   type        = string
   description = "the google project id"
 }
@@ -34,7 +34,7 @@ variable "google_external_dns_cidr" {
   default     = "35.199.192.0/19"
 }
 
-variable "azure_resource_group_name" {
+*/variable "azure_resource_group_name" {
   type        = string
   description = "name of the azure resource group to use"
 }

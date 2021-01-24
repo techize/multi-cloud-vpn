@@ -21,6 +21,7 @@ resource "aws_vpn_gateway_route_propagation" "main" {
  * ---------- Google ------------
  */
 
+/*
 resource "aws_customer_gateway" "google" {
   bgp_asn    = 65000
   ip_address = google_compute_address.vpn.address
@@ -41,6 +42,7 @@ resource "aws_vpn_connection" "google" {
     Name = "google-vpn-connection"
   }
 }
+*/
 
 /*
  * ---------- Azure ------------

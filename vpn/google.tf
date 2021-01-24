@@ -1,3 +1,4 @@
+/*
 locals {
   google_connection_name = "aws-vpn"
 }
@@ -12,12 +13,13 @@ data "google_compute_subnetwork" "subnet" {
 
   self_link = var.google_subnet_self_links[count.index]
 }
+*/
 
 /*
  * ----------VPN Connection----------
  */
 
-resource "google_compute_address" "vpn" {
+/*resource "google_compute_address" "vpn" {
   project = var.google_project_id
   name    = "${local.google_connection_name}-ip"
   region  = var.google_region
@@ -55,11 +57,13 @@ resource "google_compute_forwarding_rule" "udp4500" {
   ip_address  = google_compute_address.vpn.address
   target      = google_compute_vpn_gateway.aws.self_link
 }
+*/
 
 /*
  * ---------- VPN Tunnel 1 ----------
  */
 
+/*
 resource "google_compute_vpn_tunnel" "aws1" {
   project = var.google_project_id
 
@@ -118,11 +122,13 @@ resource "google_compute_router_interface" "aws1" {
   ip_range   = "${aws_vpn_connection.google.tunnel1_cgw_inside_address}/30"
   vpn_tunnel = google_compute_vpn_tunnel.aws1.name
 }
+*/
 
 /*
  * ---------- VPN Tunnel 2 ----------
  */
 
+/*
 resource "google_compute_vpn_tunnel" "aws2" {
   project = var.google_project_id
 
@@ -181,11 +187,13 @@ resource "google_compute_router_interface" "aws2" {
   ip_range   = "${aws_vpn_connection.google.tunnel2_cgw_inside_address}/30"
   vpn_tunnel = google_compute_vpn_tunnel.aws2.name
 }
+*/
 
 /*
  * ---------- DNS Network ACL Rules ----------
  */
 
+/*
 resource "aws_network_acl_rule" "google_internal_dns_tcp_ingress" {
   count = length(data.google_compute_subnetwork.subnet)
 
@@ -237,3 +245,4 @@ resource "aws_network_acl_rule" "google_external_dns_udp_ingress" {
   from_port   = local.dns_port
   to_port     = local.dns_port
 }
+*/
